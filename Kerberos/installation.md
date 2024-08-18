@@ -88,9 +88,29 @@ During the database propagation, kdc uses the special principals (the host princ
 | 4   | ```kprop -f /var/lib/krb5kdc/slave_trans 192.168.55.12```                                                              | root | k-master | propagate database from master to slave       |  
 | 5   | ```sudo systemctl daemon-reload``` </br>```sudo systemctl restart krb5-kdc```</br>```sudo systemctl status krb5-kdc``` | root | k-slave  | check if the status is in active state or not |  
 
+so that is the basic steps for propagating the kdc database manually, you may want to do the propagation after you change the kdc database (like creating new principals)
 
+and you can write a script for propagating db automatically
 
-## related documents:
+## Testing the KDC cluster
+
+test 1: can get the ticket from the kdc service (you can do it on another machine by installing the kdc client and )
+
+| no | operation                                             | user | server            | comment                                                                                  |
+|----|-------------------------------------------------------|------|-------------------|------------------------------------------------------------------------------------------|
+| 1  | ```sudo kadmin.local -q 'addprinc test@MY.CLUSTER'``` | root | k-master          | create the principal for testing (will ask for password since there is no flag -randkey) |
+| 2  | ```kinit test@MY.CLUSTER```                           | root | k-master, k-slave | try to get the ticket                                                                    |
+| 3  | ```klist``` <br/> ```kdestroy```                      | root | k-master, k-slave | show the ticket, and destroy it                                                          |
+|    |                                                       |      |                   |                                                                                          |
+
+where the logs saved:
+```
+/var/log/kadmin.log
+/var/log/kadmind.log
+/var/log/krb5kdc.log
+```
+
+## related documentation:
 
 https://web.mit.edu/kerberos/krb5-1.12/doc/index.html
 

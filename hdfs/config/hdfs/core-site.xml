@@ -1,0 +1,18 @@
+<configuration>
+
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://bigdatahdfs</value>
+    </property>
+
+    <property>
+        <name>fs.trash.interval</name>
+        <value>2880</value>
+    </property>
+    <property>
+
+        <name>hadoop.tmp.dir</name>
+        <value>/data/hdfs/tmp/</value>
+    </property>
+
+</configuration>

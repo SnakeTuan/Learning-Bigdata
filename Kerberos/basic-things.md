@@ -1,4 +1,4 @@
-# Understand how kerberos work
+# Understanding how kerberos work
 
 
 ## What is Kerberos:
@@ -44,7 +44,7 @@ He appreciates the time he saves by not having to sign in to each application.
 - The same is true for a kerberos's authentication token: It can only be used for a certain resource, for a certain period of time, on a certain day. 
 When the original token expires, a refresh token is sent in its place to maintain SSO (Single sign-on)
 
-### Main parts of kerberos:
+### Maaaaaaain parts of kerberos:
 Kerberos has 3 Main Parts:
 - User/client             
 - Key distribution center (KDC): include Authentication server (AS) and Ticket-granting server (TGS)       

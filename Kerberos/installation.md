@@ -1,11 +1,9 @@
-# This document demonstates how to install and configure two kerberos KDCs as master/slave
+# This document demonstrates how to install and configure two kerberos KDCs as master/slave
 
 
 ## Environment
 ```
 ubuntu 22.04
-
-Kerberos 5
 ```
 
 
@@ -110,7 +108,7 @@ where the logs saved:
 /var/log/krb5kdc.log
 ```
 
-## related documentation:
+## related documentationaa:
 
 https://web.mit.edu/kerberos/krb5-1.12/doc/index.html
 
